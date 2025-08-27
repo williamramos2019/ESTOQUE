@@ -1,0 +1,35 @@
+{
+    "name": "almoxarifado/gestao-estoque-upgraded",
+    "description": "Sistema de Gestão de Estoque - Versão Modernizada",
+    "type": "project",
+    "require": {
+        "php": ">=8.3",
+        "ext-pdo": "*",
+        "ext-sqlite3": "*",
+        "phpmailer/phpmailer": "^6.8",
+        "tecnickcom/tcpdf": "^6.6",
+        "respect/validation": "^2.2",
+        "predis/predis": "^2.2",
+        "ratchet/pawl": "^0.4",
+        "monolog/monolog": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Services\\": "services/",
+            "Config\\": "config/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"if (!file_exists('gestao.sqlite')) { touch('gestao.sqlite'); }\""
+        ]
+    }
+}
